@@ -1,0 +1,30 @@
+<!doctype html>
+<!--------------------Author: Magdalena Kolarova -------------------->
+<title>SN Systems Exercise</title>
+<h1> Welcome! </h1>
+<h2>Select file to upload</h2>
+<p>
+	{% with messages = get_flashed_messages() %}
+	  {% if messages %}
+		<ul class=flashes>
+		{% for message in messages %}
+		  <li>{{ message }}</li>
+		{% endfor %}
+		</ul>
+	  {% endif %}
+	{% endwith %}
+</p>
+<form method="post" action="/" enctype="multipart/form-data">
+    <dl>
+		<p>
+			<input type="file" name="file" autocomplete="off" required>
+		</p>
+    </dl>
+    <p>
+		<input type="submit" value="Submit">
+    </p>
+    <p>
+      <h3> MD5 hash: </h3>
+      <input type="text" name= "calculated_hash" autocomplete="off", value = {{ calculated_hash }} >
+	</p>
+</form>
