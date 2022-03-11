@@ -1,4 +1,4 @@
-#-----------SN SYSTEMS EXERCISE -------------------#
+#------------------ EXERCISE -------------------#
 # --------- Author: Magdalena Kolarova  -------- #
 
 import os
