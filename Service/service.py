@@ -1,4 +1,4 @@
-#------------------ EXERCISE -------------------#
+#-------------------EXERCISE --------------------#
 # --------- Author: Magdalena Kolarova  -------- #
 
 import os
@@ -8,18 +8,9 @@ from werkzeug.utils import secure_filename
 
 app=Flask(__name__)
 
-app.secret_key = "secret key"
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 
 path = os.getcwd()
-# file Upload
-UPLOAD_FOLDER = os.path.join(path, 'uploads')
-
-if not os.path.isdir(UPLOAD_FOLDER):
-    os.mkdir(UPLOAD_FOLDER)
-
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-
 
 ALLOWED_EXTENSIONS = set(['jpg', 'txt', 'pdf' ])
 
@@ -33,7 +24,7 @@ def upload_form():
     return render_template('upload.html')
 
 @app.route('/', methods=['POST'])
-def upload_file():
+def uploadFileAndCalculate():
     if request.method == 'POST':
         # check if the post request has the file
         if 'file' not in request.files:
